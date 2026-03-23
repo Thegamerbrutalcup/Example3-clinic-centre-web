@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Priya Mehta — Consultant Physician</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#0B1F3A;
+  --blue:#1A4A8A;
+  --sky:#4A90D9;
+  --teal:#00A99D;
+  --cream:#F7F9FC;
+  --white:#FFFFFF;
+  --text:#1A2940;
+  --muted:#6B7C93;
+  --border:#E2EBF5;
+  --light:#EBF2FC;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;width:100%;z-index:100;
+  padding:0 60px;height:72px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--teal));
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+}
+.logo-text .name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--navy);letter-spacing:0.3px;}
+.logo-text .title{font-size:11px;color:var(--muted);letter-spacing:0.5px;}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--blue);}
+.nav-cta{
+  background:var(--blue);color:#fff!important;
+  padding:10px 24px;border-radius:6px;font-size:13px!important;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;padding:120px 60px 80px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;max-width:1280px;margin:0 auto;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--light);border:1px solid rgba(74,144,217,0.3);
+  padding:8px 16px;border-radius:100px;margin-bottom:28px;
+}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:blink 2s infinite;}
+.hero-badge span{font-size:12px;color:var(--blue);font-weight:500;letter-spacing:0.5px;}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,5vw,72px);line-height:1.1;color:var(--navy);
+}
+.hero h1 em{color:var(--sky);font-style:italic;}
+.hero-sub{
+  margin-top:20px;font-size:16px;line-height:1.8;
+  color:var(--muted);font-weight:300;max-width:480px;
+}
+.hero-actions{margin-top:40px;display:flex;gap:12px;flex-wrap:wrap;}
+.btn-blue{
+  background:var(--blue);color:#fff;padding:14px 32px;
+  border-radius:8px;font-size:14px;font-weight:500;
+  text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;
+}
+.btn-blue:hover{background:var(--navy);}
+.btn-ghost{
+  background:transparent;color:var(--blue);padding:14px 32px;
+  border-radius:8px;font-size:14px;font-weight:500;
+  text-decoration:none;transition:all 0.2s;
+  border:1.5px solid var(--border);
+}
+.btn-ghost:hover{border-color:var(--blue);}
+.hero-stats{
+  margin-top:56px;display:flex;gap:40px;
+  padding-top:40px;border-top:1px solid var(--border);
+}
+.hstat-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--navy);}
+.hstat-num span{color:var(--teal);}
+.hstat-label{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* HERO CARD */
+.hero-right{position:relative;}
+.doctor-card{
+  background:var(--white);border-radius:20px;
+  padding:40px;border:1px solid var(--border);
+  box-shadow:0 20px 60px rgba(11,31,58,0.08);
+}
+.doctor-avatar{
+  width:100%;aspect-ratio:4/3;border-radius:12px;
+  background:linear-gradient(135deg,var(--light),#D0E8FF);
+  display:flex;align-items:center;justify-content:center;
+  font-size:80px;margin-bottom:28px;
+}
+.dr-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--navy);}
+.dr-spec{font-size:13px;color:var(--teal);font-weight:500;margin-top:4px;letter-spacing:0.5px;}
+.dr-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.tag{
+  padding:6px 14px;border-radius:100px;font-size:12px;font-weight:500;
+  background:var(--light);color:var(--blue);border:1px solid rgba(74,144,217,0.2);
+}
+.avail-banner{
+  margin-top:24px;background:rgba(0,169,157,0.08);
+  border:1px solid rgba(0,169,157,0.2);border-radius:8px;
+  padding:14px 18px;display:flex;align-items:center;gap:12px;
+}
+.avail-dot{width:10px;height:10px;border-radius:50%;background:var(--teal);flex-shrink:0;animation:blink 1.5s infinite;}
+.avail-text{font-size:13px;color:var(--text);}
+.avail-text strong{color:var(--teal);}
+.float-card{
+  position:absolute;top:-20px;right:-20px;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:12px;padding:16px 20px;
+  box-shadow:0 8px 30px rgba(11,31,58,0.1);
+  display:flex;align-items:center;gap:12px;
+}
+.float-icon{font-size:24px;}
+.float-label{font-size:11px;color:var(--muted);}
+.float-value{font-size:14px;font-weight:600;color:var(--navy);}
+
+/* SERVICES */
+.services-section{padding:100px 60px;max-width:1280px;margin:0 auto;}
+.sec-header{text-align:center;margin-bottom:64px;}
+.sec-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:16px;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);color:var(--navy);}
+.sec-title em{color:var(--sky);font-style:italic;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.service-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:16px;padding:36px 32px;
+  transition:all 0.3s;cursor:default;
+  position:relative;overflow:hidden;
+}
+.service-card::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--teal));
+  transform:scaleX(0);transition:transform 0.3s;transform-origin:left;
+}
+.service-card:hover{border-color:rgba(74,144,217,0.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(11,31,58,0.08);}
+.service-card:hover::before{transform:scaleX(1);}
+.svc-icon{font-size:32px;margin-bottom:20px;display:block;}
+.svc-name{font-size:17px;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.svc-desc{font-size:14px;color:var(--muted);line-height:1.7;}
+.svc-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;}
+
+/* ABOUT */
+.about-section{
+  background:var(--navy);padding:100px 60px;
+}
+.about-inner{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.about-content .sec-tag{color:rgba(74,144,217,0.8);}
+.about-content .sec-title{color:var(--white);}
+.about-text{margin-top:24px;font-size:15px;line-height:1.9;color:rgba(255,255,255,0.55);font-weight:300;}
+.quals{margin-top:40px;display:flex;flex-direction:column;gap:16px;}
+.qual-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:18px 22px;border-radius:10px;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+}
+.qual-icon{font-size:20px;flex-shrink:0;}
+.qual-title{font-size:14px;font-weight:600;color:var(--white);}
+.qual-sub{font-size:12px;color:rgba(255,255,255,0.4);margin-top:3px;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.about-stat-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:14px;padding:28px 24px;
+}
+.asn{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--white);line-height:1;}
+.asn em{color:var(--teal);font-style:normal;}
+.asl{font-size:12px;color:rgba(255,255,255,0.45);margin-top:8px;line-height:1.5;}
+
+/* APPOINTMENT */
+.appt-section{padding:100px 60px;max-width:900px;margin:0 auto;}
+.appt-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:20px;padding:60px;
+  box-shadow:0 20px 60px rgba(11,31,58,0.06);
+}
+.appt-header{text-align:center;margin-bottom:48px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{display:flex;flex-direction:column;gap:8px;}
+.form-group.full{grid-column:span 2;}
+.form-label{font-size:12px;font-weight:600;color:var(--navy);letter-spacing:0.5px;text-transform:uppercase;}
+.form-group input,.form-group select,.form-group textarea{
+  border:1.5px solid var(--border);border-radius:10px;
+  padding:14px 16px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;
+  color:var(--text);background:var(--cream);outline:none;
+  transition:border-color 0.2s;resize:none;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--sky);background:var(--white);}
+.form-group select option{background:white;}
+.form-submit{
+  width:100%;background:var(--blue);color:#fff;
+  border:none;border-radius:10px;padding:16px;
+  font-size:15px;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;
+  cursor:pointer;transition:background 0.2s;margin-top:8px;
+}
+.form-submit:hover{background:var(--navy);}
+
+/* TESTIMONIALS */
+.testi-section{background:var(--light);padding:100px 60px;}
+.testi-inner{max-width:1280px;margin:0 auto;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px;}
+.testi-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:16px;padding:32px;
+}
+.stars{color:#F5A623;font-size:14px;letter-spacing:2px;margin-bottom:16px;}
+.testi-text{font-size:14px;line-height:1.8;color:var(--text);}
+.testi-author{display:flex;align-items:center;gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
+.author-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--light),#C5D9F0);
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.author-name{font-size:14px;font-weight:600;color:var(--navy);}
+.author-info{font-size:12px;color:var(--muted);}
+
+/* FOOTER */
+footer{
+  background:var(--navy);padding:64px 60px 36px;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:60px;
+}
+.fl{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);margin-bottom:12px;}
+.fd{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.8;max-width:260px;}
+.fh{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:18px;}
+.fl-links{list-style:none;}
+.fl-links li{margin-bottom:10px;}
+.fl-links a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:13.5px;transition:color 0.2s;}
+.fl-links a:hover{color:var(--white);}
+.fbot{
+  grid-column:span 4;border-top:1px solid rgba(255,255,255,0.08);
+  padding-top:28px;margin-top:12px;
+  display:flex;justify-content:space-between;
+  font-size:12px;color:rgba(255,255,255,0.3);
+}
+.fbot strong{color:var(--teal);}
+
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+@keyframes slideIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+.animate-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.animate-in.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:100px 24px 60px;gap:40px;}
+  .float-card{display:none;}
+  .services-grid{grid-template-columns:1fr;padding:80px 24px;}
+  .services-section{padding:80px 24px;}
+  .about-inner{grid-template-columns:1fr;padding:0;}
+  .about-section{padding:80px 24px;}
+  .about-grid{grid-template-columns:1fr 1fr;}
+  .appt-section{padding:80px 24px;}
+  .appt-card{padding:32px 24px;}
+  .form-grid{grid-template-columns:1fr;}
+  .form-group.full{grid-column:span 1;}
+  .testi-section{padding:80px 24px;}
+  .testi-grid{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr 1fr;padding:60px 24px 32px;gap:40px;}
+  .fbot{grid-column:span 2;flex-direction:column;gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <div class="logo-icon">👩‍⚕️</div>
+    <div class="logo-text">
+      <div class="name">Dr. Priya Mehta</div>
+      <div class="title">MD · Consultant Physician</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#appointment" class="nav-cta">Book Appointment</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span>Accepting New Patients · Mon–Sat</span>
+    </div>
+    <h1>Expert Care,<br><em>Closest to Home</em></h1>
+    <p class="hero-sub">Compassionate, evidence-based medicine for every stage of life. From routine checkups to complex diagnostics — your health, in trusted hands.</p>
+    <div class="hero-actions">
+      <a href="#appointment" class="btn-blue">Book Appointment</a>
+      <a href="#services" class="btn-ghost">View Services</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hstat-num">12<span>+</span></div>
+        <div class="hstat-label">Years experience</div>
+      </div>
+      <div>
+        <div class="hstat-num">8K<span>+</span></div>
+        <div class="hstat-label">Patients treated</div>
+      </div>
+      <div>
+        <div class="hstat-num">4.9<span>★</span></div>
+        <div class="hstat-label">Patient rating</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="float-card">
+      <span class="float-icon">📅</span>
+      <div>
+        <div class="float-label">Next available</div>
+        <div class="float-value">Tomorrow, 10:30 AM</div>
+      </div>
+    </div>
+    <div class="doctor-card">
+      <div class="doctor-avatar">👩‍⚕️</div>
+      <div class="dr-name">Dr. Priya Mehta</div>
+      <div class="dr-spec">MD · MBBS · Internal Medicine · Diabetologist</div>
+      <div class="dr-tags">
+        <span class="tag">Diabetes</span>
+        <span class="tag">Thyroid</span>
+        <span class="tag">Hypertension</span>
+        <span class="tag">Preventive Care</span>
+      </div>
+      <div class="avail-banner">
+        <span class="avail-dot"></span>
+        <span class="avail-text"><strong>Available today</strong> — Walk-ins welcome after 5 PM</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-section" id="services">
+  <div class="sec-header">
+    <span class="sec-tag">What We Offer</span>
+    <h2 class="sec-title">Comprehensive <em>Medical Services</em></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card animate-in">
+      <span class="svc-icon">🩺</span>
+      <div class="svc-name">General Consultation</div>
+      <p class="svc-desc">Thorough evaluation of symptoms, medical history, and lifestyle. Evidence-based treatment plans tailored to you.</p>
+      <a href="#appointment" class="svc-link">Book now →</a>
+    </div>
+    <div class="service-card animate-in">
+      <span class="svc-icon">🩸</span>
+      <div class="svc-name">Diabetes Management</div>
+      <p class="svc-desc">Type 1 & Type 2 diabetes care, HbA1c monitoring, diet counselling, and medication management.</p>
+      <a href="#appointment" class="svc-link">Book now →</a>
+    </div>
+    <div class="service-card animate-in">
+      <span class="svc-icon">❤️</span>
+      <div class="svc-name">Cardiac Risk Assessment</div>
+      <p class="svc-desc">Early screening for hypertension, cholesterol, and cardiovascular risk factors before they become serious.</p>
+      <a href="#appointment" class="svc-link">Book now →</a>
+    </div>
+    <div class="service-card animate-in">
+      <span class="svc-icon">🧬</span>
+      <div class="svc-name">Thyroid & Hormones</div>
+      <p class="svc-desc">Diagnosis and management of hypothyroidism, hyperthyroidism, PCOS, and other hormonal conditions.</p>
+      <a href="#appointment" class="svc-link">Book now →</a>
+    </div>
+    <div class="service-card animate-in">
+      <span class="svc-icon">📋</span>
+      <div class="svc-name">Health Checkup Packages</div>
+      <p class="svc-desc">Full-body preventive health checks for individuals, families, and corporate employees. Reports within 24 hours.</p>
+      <a href="#appointment" class="svc-link">Book now →</a>
+    </div>
+    <div class="service-card animate-in">
+      <span class="svc-icon">💊</span>
+      <div class="svc-name">Chronic Disease Care</div>
+      <p class="svc-desc">Long-term management of conditions like arthritis, asthma, and kidney disease with regular follow-up.</p>
+      <a href="#appointment" class="svc-link">Book now →</a>
+    </div>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-content">
+      <span class="sec-tag">About the Doctor</span>
+      <h2 class="sec-title" style="color:white;">Healing with <em style="color:#4A90D9;">Science</em><br>& Compassion</h2>
+      <p class="about-text">Dr. Priya Mehta completed her MD in Internal Medicine from Grant Medical College, Mumbai, and has been in clinical practice for over 12 years. Her approach combines the rigour of modern medicine with genuine care for each patient's life beyond the clinic.</p>
+      <p class="about-text" style="margin-top:12px;">She currently consults at her private practice in Andheri West and is empanelled with several leading insurance providers.</p>
+      <div class="quals">
+        <div class="qual-item">
+          <span class="qual-icon">🎓</span>
+          <div>
+            <div class="qual-title">MBBS — Grant Medical College, Mumbai</div>
+            <div class="qual-sub">2008 · First Class with Distinction</div>
+          </div>
+        </div>
+        <div class="qual-item">
+          <span class="qual-icon">🏥</span>
+          <div>
+            <div class="qual-title">MD Internal Medicine — JJ Hospital</div>
+            <div class="qual-sub">2012 · Gold Medallist</div>
+          </div>
+        </div>
+        <div class="qual-item">
+          <span class="qual-icon">🏆</span>
+          <div>
+            <div class="qual-title">Fellowship in Diabetology — RSSDI</div>
+            <div class="qual-sub">2015 · Registered Specialist</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div class="about-stat-card">
+        <div class="asn">12<em>+</em></div>
+        <div class="asl">Years in clinical practice</div>
+      </div>
+      <div class="about-stat-card">
+        <div class="asn">8K<em>+</em></div>
+        <div class="asl">Patients successfully treated</div>
+      </div>
+      <div class="about-stat-card">
+        <div class="asn">4.9<em>★</em></div>
+        <div class="asl">Average patient rating</div>
+      </div>
+      <div class="about-stat-card">
+        <div class="asn">6<em>+</em></div>
+        <div class="asl">Insurance panels accepted</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi-section" id="testimonials">
+  <div class="testi-inner">
+    <div class="sec-header">
+      <span class="sec-tag">Patient Stories</span>
+      <h2 class="sec-title">What Our <em>Patients Say</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card animate-in">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Dr. Mehta is the most thorough doctor I've seen in years. She listened to every concern, explained everything clearly, and my diabetes is finally under control after 6 months with her.</p>
+        <div class="testi-author">
+          <div class="author-avatar">👨</div>
+          <div>
+            <div class="author-name">Ramesh Verma</div>
+            <div class="author-info">Patient since 2021 · Diabetes</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card animate-in">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">I came in for a routine checkup and left with a full understanding of my health. She detected an early thyroid issue that I would have missed for years. Forever grateful.</p>
+        <div class="testi-author">
+          <div class="author-avatar">👩</div>
+          <div>
+            <div class="author-name">Sneha Kulkarni</div>
+            <div class="author-info">Patient since 2022 · Thyroid</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card animate-in">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">The clinic is calm, the staff is kind, and Dr. Mehta never makes you feel rushed. She treats you like a person, not a file number. Best physician in Andheri by far.</p>
+        <div class="testi-author">
+          <div class="author-avatar">👴</div>
+          <div>
+            <div class="author-name">Ashok Patil</div>
+            <div class="author-info">Patient since 2020 · General</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appt-section" id="appointment">
+  <div class="appt-card">
+    <div class="appt-header">
+      <span class="sec-tag" style="text-align:center;">Schedule a Visit</span>
+      <h2 class="sec-title">Book an <em>Appointment</em></h2>
+      <p style="color:var(--muted);font-size:14px;margin-top:12px;">We'll confirm your slot via call or WhatsApp within 2 hours.</p>
+    </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" placeholder="+91 98XXX XXXXX">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Preferred Date</label>
+        <input type="date">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Preferred Time</label>
+        <select>
+          <option value="" disabled selected>Select a slot</option>
+          <option>Morning: 10:00 – 11:00 AM</option>
+          <option>Morning: 11:00 – 12:00 PM</option>
+          <option>Evening: 5:00 – 6:00 PM</option>
+          <option>Evening: 6:00 – 7:00 PM</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Consultation Type</label>
+        <select>
+          <option value="" disabled selected>Select type</option>
+          <option>General Consultation</option>
+          <option>Diabetes Management</option>
+          <option>Thyroid / Hormonal</option>
+          <option>Health Checkup</option>
+          <option>Follow-up Visit</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Age</label>
+        <input type="number" placeholder="Patient age">
+      </div>
+      <div class="form-group full">
+        <label class="form-label">Brief Concern (optional)</label>
+        <textarea rows="3" placeholder="Describe your symptoms or reason for visit..."></textarea>
+      </div>
+      <div class="form-group full">
+        <button class="form-submit">Confirm Appointment →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="fl">Dr. Priya Mehta</div>
+    <p class="fd">Consultant Physician & Diabetologist. Private practice at Andheri West, Mumbai. Over 12 years of trusted care.</p>
+  </div>
+  <div>
+    <div class="fh">Quick Links</div>
+    <ul class="fl-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#appointment">Book Appointment</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fh">Clinic Hours</div>
+    <ul class="fl-links">
+      <li><a href="#">Mon – Fri: 10am – 1pm</a></li>
+      <li><a href="#">Mon – Fri: 5pm – 8pm</a></li>
+      <li><a href="#">Saturday: 10am – 2pm</a></li>
+      <li><a href="#" style="color:rgba(255,80,80,0.5);">Sunday: Closed</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fh">Contact</div>
+    <ul class="fl-links">
+      <li><a href="#">+91 98200 11111</a></li>
+      <li><a href="#">dr.priya@clinic.in</a></li>
+      <li><a href="#">204, Shree Complex,<br>Andheri West, Mumbai</a></li>
+    </ul>
+  </div>
+  <div class="fbot">
+    <span>© 2024 Dr. Priya Mehta Clinic. All rights reserved.</span>
+    <span>Designed by <strong>YourName Studio</strong></span>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'), i * 80);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
